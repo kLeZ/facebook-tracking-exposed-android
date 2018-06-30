@@ -20,11 +20,21 @@
 package exposed.tracking.facebook.android;
 
 import android.accessibilityservice.AccessibilityService;
+import android.util.Log
 import android.view.accessibility.AccessibilityEvent
 
 class FacebookScrapingService : AccessibilityService() {
-	override fun onAccessibilityEvent(p0: AccessibilityEvent?) {
-		TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+	companion object {
+		private const val TAG = "FacebookScrapingService"
+	}
+
+	override fun onAccessibilityEvent(event: AccessibilityEvent?) {
+		var msg: String = when (event!!.eventType) {
+			AccessibilityEvent.TYPE_VIEW_CLICKED -> "Clicked: ${event!!.contentDescription.toString()}"
+			AccessibilityEvent.TYPE_VIEW_FOCUSED -> "Focused: ${event!!.contentDescription.toString()}"
+			else -> "Type View ${event!!.eventType} not managed!!"
+		}
+		Log.d(TAG, msg)
 	}
 
 	override fun onInterrupt() {
