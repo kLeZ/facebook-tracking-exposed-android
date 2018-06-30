@@ -17,14 +17,12 @@
   ~
   -->
 
-<resources>
-
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-</resources>
+<accessibility-service
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:accessibilityEventTypes="typeViewClicked|typeViewFocused"
+	android:accessibilityFeedbackType="feedbackSpoken"
+	android:canRetrieveWindowContent="true"
+	android:notificationTimeout="100"
+	android:packageNames="com.example.android.myFirstApp, com.example.android.mySecondApp"
+	android:settingsActivity="com.example.android.apis.accessibility.TestBackActivity"
+	/>
